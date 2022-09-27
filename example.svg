@@ -15,6 +15,9 @@
                 to {
                     color: yellow;
                 }
+                to {
+                    color: green;
+                }
             }
             </style>
             <h1>HELLO WORLD!</h1>
