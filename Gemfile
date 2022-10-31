@@ -58,6 +58,8 @@ group :development, :test do
   gem "sqlite3", "~> 1.4"
   # Use rspec
   gem "rspec-rails", "~> 4.0.1"
+  # Use capybara with rspec
+  gem "capybara"
 end
 
 group :development do
