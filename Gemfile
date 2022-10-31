@@ -58,8 +58,10 @@ group :development, :test do
   gem "sqlite3", "~> 1.4"
   # Use rspec
   gem "rspec-rails", "~> 4.0.1"
-  # Use capybara with rspec
+  # Use capybara
   gem "capybara"
+  # Use simplecov 
+  gem "simplecov", require: false
 end
 
 group :development do
@@ -75,8 +77,6 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
-  gem "simplecov", require: false
 end
