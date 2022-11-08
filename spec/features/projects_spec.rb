@@ -9,15 +9,21 @@ RSpec.feature "Projects", type: :feature do
       end
     end
 
-    scenario "should be successful" do
+    scenario "should be successful (title and description present)" do
       fill_in "Description", with: "Test description"
       click_button "Create Project"
       expect(page).to have_content("Project was successfully created")
     end
 
-    scenario "should fail" do
+    scenario "should fail (blank description)" do
       click_button "Create Project"
       expect(page).to have_content("Description can't be blank")
+    end
+
+    scenario "should fail (blank title)" do
+      fill_in "Title", with: ""
+      click_button "Create Project"
+      expect(page).to have_content("Title can't be blank")
     end
   end
 
@@ -27,7 +33,7 @@ RSpec.feature "Projects", type: :feature do
       visit edit_project_path(project)
     end
 
-    scenario "should be successful" do
+    scenario "should be successful (update with description present)" do
       within("form") do
         fill_in "Description", with: "New description content"
       end
@@ -35,7 +41,7 @@ RSpec.feature "Projects", type: :feature do
       expect(page).to have_content("Project was successfully updated")
     end
 
-    scenario "should fail" do
+    scenario "should fail (update with blank description)" do
       within("form") do
         fill_in "Description", with: ""
       end
@@ -46,9 +52,9 @@ RSpec.feature "Projects", type: :feature do
 
   context "Remove existing project" do
     let!(:project) { Project.create(title: "Test title", description: "Test content") }
-    scenario "remove project" do
+    scenario "should be successful (0 projects after project was successfully destroyed)" do
       visit project_path(project.id)
-      click_on "Destroy this project"
+      click_button "Destroy this project"
       expect(page).to have_content("Project was successfully destroyed")
       expect(Project.count).to eq(0)
     end
