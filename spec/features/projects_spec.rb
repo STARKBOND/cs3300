@@ -48,7 +48,8 @@ RSpec.feature "Projects", type: :feature do
     let!(:project) { Project.create(title: "Test title", description: "Test content") }
     scenario "remove project" do
       visit projects_path
-      click_link "Destroy"
+      click_on "Show this project" # projects_path doesn't have a destroy button, but projects#show does... the question is how to visit projects_show in previous line?
+      click_on "Destroy this project"
       expect(page).to have_content("Project was successfully destroyed")
       expect(Project.count).to eq(0)
     end
