@@ -24,6 +24,9 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# User and Password authentication
+gem "devise"
+
 group :production do
   gem 'pg' # for Heroku deployment
   gem 'rails_12factor'
