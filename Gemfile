@@ -27,6 +27,9 @@ gem "jbuilder"
 # User and Password authentication
 gem "devise"
 
+# Mocks and stubs for users
+gem "factory_bot"
+
 group :production do
   gem 'pg' # for Heroku deployment
   gem 'rails_12factor'

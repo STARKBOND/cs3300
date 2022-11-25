@@ -69,4 +69,9 @@ SimpleCov.start 'rails' do
   add_filter '/spec/' # for rspec
   add_filter 'app/channels/application_cable/' # web sockets
   add_filter 'app/helpers/' # helpers not implemented
+  add_filter 'app/controllers/devise/' # cloned base class devise controllers from github to see implementation
+  add_filter 'app/controllers/users/' # unconfigured extra devise controllers
+# app/models/application_record.rb
+# app/models/user.rb
+# app/controllers/projects_controller.rb
 end
