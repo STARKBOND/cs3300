@@ -68,6 +68,8 @@ group :development, :test do
   gem "capybara"
   # Use simplecov 
   gem "simplecov", require: false
+  # mocks and stubs
+  gem "factory_bot_rails"
 end
 
 group :development do
